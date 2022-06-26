@@ -1,0 +1,2212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL Server</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+    <nav id="navbar">
+        <header>SQL Server</header>
+        <ul>
+            <li><a class="nav-link" href="#Intro_to_SQL_Server">Intro to SQL Server</a></li>
+            <li><a class="nav-link" href="#Data_Definition_Language">Data Definition Language</a></li>
+            <li><a class="nav-link" href="#Data_Manipulation_Language">Data Manipulation Language</a></li>
+            <li><a class="nav-link" href="#Data_Query_Language">Data Query Language</a></li>
+            <li><a class="nav-link" href="#Constraints">Constraints</a></li>
+            <li><a class="nav-link" href="#Rules">Rules</a></li>
+            <li><a class="nav-link" href="#Cascade_Function">Cascade Function</a></li>
+            <li><a class="nav-link" href="#Wild_Cards">Wild Cards</a></li>
+            <li><a class="nav-link" href="#Select_Into">Select Into</a></li>
+            <li><a class="nav-link" href="#System_Stored_Procedures">System Stored Procedures</a></li>
+            <li><a class="nav-link" href="#System_Functions">System Functions</a></li>
+            <li><a class="nav-link" href="#Aggregation_Functions">Aggregation Functions</a></li>
+            <li><a class="nav-link" href="#String_Manipulation">String Manipulation</a></li>
+            <li><a class="nav-link" href="#Ranking_Functions">Ranking Functions</a></li>
+            <li><a class="nav-link" href="#NULL_Functions">NULL Functions</a></li>
+            <li><a class="nav-link" href="#Joins">Joins</a></li>
+            <li><a class="nav-link" href="#Sub-Queries">Sub-Queries</a></li>
+            <li><a class="nav-link" href="#Set_Operators">Set Operators</a></li>
+            <li><a class="nav-link" href="#Views">Views</a></li>
+            <li><a class="nav-link" href="#Dynamic_SQL">Dynamic SQL</a></li>
+            <li><a class="nav-link" href="#Table_Variables">Table Variables</a></li>
+            <li><a class="nav-link" href="#CTEs">CTEs</a></li>
+            <li><a class="nav-link" href="#Temporary_Tables">Temporary Tables</a></li>
+            <li><a class="nav-link" href="#Control_Flow_Statements">Control Flow Statements</a></li>
+            <li><a class="nav-link" href="#User_Defined_Stored_Procedures">User Defined Stored Procedures</a></li>
+            <li><a class="nav-link" href="#User_Defined_Functions">User Defined Functions</a></li>
+            <li><a class="nav-link" href="#Triggers">Triggers</a></li>
+            <li><a class="nav-link" href="#Indexes">Indexes</a></li>
+            <li><a class="nav-link" href="#Cursors">Cursors</a></li>
+            <li><a class="nav-link" href="#Bulk_Insert,_BCP">Bulk Insert, BCP</a></li>
+            <li><a class="nav-link" href="#Error_Handling">Error Handling</a></li>
+            <li><a class="nav-link" href="#Transacton_Control_Language">Transacton Control Language</a></li>
+            <li><a class="nav-link" href="#Analytical_Functions">Analytical Functions</a></li>
+            <li><a class="nav-link" href="#Merge_OUTPUT">Merge _ OUTPUT</a></li>
+            <li><a class="nav-link" href="#PIVOT_and_UNPIVOT">PIVOT and UNPIVOT</a></li>
+            <li><a class="nav-link" href="#Column_Store_Index">Column Store Index</a></li>
+            <li><a class="nav-link" href="#Index_Fragmentation_and_Maintenance">Index Fragmentation and Maintenance</a></li>
+            <li><a class="nav-link" href="#Locks_and_Isolation_Levels">Locks and Isolation Levels</a></li>
+            <li><a class="nav-link" href="#Partitions">Partitions</a></li>
+            <li><a class="nav-link" href="#Logins_and_Users">Logins and Users</a></li>
+            <li><a class="nav-link" href="#Data_Control_Language">Data Control Language</a></li>
+            <li><a class="nav-link" href="#Recovery_Models,_Backups,_Job_Agent">Recovery Models, Backups, Job Agent</a></li>
+            <li><a class="nav-link" href="#Hints">Hints</a></li>
+            <li><a class="nav-link" href="#SQL_Profiler">SQL Profiler</a></li>
+        </ul>
+    </nav>
+    <main id="main-doc">
+        <section class="main-section" id="Intro_to_SQL_Server">
+            <header>Introduction to SQL Server</header>
+            <article>
+                <p>
+                    The SQL Server is a RDBMS (Relational DataBase Management System) from Microsoft. The system is designed and built is to manage
+                    and store information. The system supports various business intelligence operations, analytics operations, and transaction
+                    processing.
+                </p>
+                <ul>
+                    <li>
+                        <strong>Common Versions out 2005, 2008, 2008 R2, 2012, 2014, 2016 and 2017.</strong>
+                    </li>   
+                </ul>
+                <h3>Authentication Modes</h3>
+                <ul>
+                    <li>
+                        Authentication modes refer to the method in which you can connect to SQL Server
+                    </li>
+                    <li>
+                        Windows Credentials / Uses windows user who installed SQL to have access to the server as long as that account is signed in
+                    </li>
+                    <li>
+                        SQL Server / Mixed Mode is when you need to have a Username and Password to get into SQL Server
+                    </li>
+                </ul>>
+            </article>
+        </section>
+
+        <section class="main-section" id="Data_Definition_Language">
+            <header>Data Definition Language (DDL)</header>
+            <article>
+                <P>
+                    Data Definition Language (DDL) is a standard for commands that define the different structures in a database.
+                     DDL statements create, modify, and remove database objects such as tables, indexes, and users. 
+                     Common DDL statements are CREATE, ALTER, and DROP.
+                </P>
+                <h3>Create Statements</h3>
+                <ul>
+                    <li>Create statements are used to create objects in SQL server for use</li>
+                    <li>Tables, Schemas, Triggers, User Defined Stored Procedures, User Defined Functions</li>
+                </ul>    
+                <b>Creating a table</b>
+                <code>Create Table TblName(ID int, Name varchar(20))</code>
+                <b>Creating Schemas</b>
+                <code>Create Schema Test</code>    
+                
+                <h3>Alter Statements</h3>
+                <ul>
+                    <li>Used to make changes to a table or database object</li>
+                    <li>Can also be used to add columns or delete columns</li>
+                    <li>Alter tables, columns, triggers, stored procedures and UDFs</li>
+                </ul>    
+                <b>Add Column</b>
+                <code>Alter Table TblName <br>Add Email varchar(20)</code>
+                <b>Alter Column</b>
+                <code>Alter Table TblName <br>Alter Column Email char(20)</code>
+                <b>Drop Column</b>
+                <code>Alter Table TblName <br>Drop Column Email</code>    
+                
+                <h3>Drop Statements</h3>
+                <ul>
+                    <li>Drop is used to remove whole structures or objects from SQL server. It is not the same as delete, which removes data</li>
+                    <li>Drop tables, schemas, constraints, views, triggers, indexes</li>
+                </ul>    
+                <b>Drop a Column</b>
+                <code>Alter Table TblName <br>Drop Column Email</code>
+                <b>Drop a Table</b>
+                <code>Drop Table TblName</code>
+                <b>Drop a schema</b>
+                <code>Drop Schema SchName</code>    
+                
+                <h3>Adding Constraints to a Table</h3>
+                <p>We have three methods of adding different constraints to a table</p>
+                <ol>
+                    <li>Method One: Create Table then alter to add constraints</li>
+                    <li>Method Two: Add constraint as we specify the columns in a table</li>
+                    <li>Method three: Add constraints in the same create statement, after we have specified the table</li>
+                </ol>
+            </article>
+        </section>
+
+        <section class="main-section" id="Data_Manipulation_Language">
+            <header>Data Manipulation Language (DML)</header>
+            <article>
+                <p>
+                    Data Manipulation Language or DML is a subset of operations used to insert, delete, and update data in a database.
+                </p>
+                <h3>Insert Statements</h3>
+                <ul>
+                    <li>Insert statements are used to input data into tables</li>
+                    <li>The order of data specified should match order of columns</li>
+                    <li>If you don't know the order of columns, specify each column in the insert statement</li>
+                </ul>    
+                <b>Inserting data matching order</b>
+                <code>Insert into TblName <br>values (1,'Name'),(2,'Name')</code>
+                <b>Inserting data without knowing matching order</b>
+                <code>Insert into TblName (Col2,Col1) <br>values ('Name',1),('Name',2)</code>
+                
+                <h3>Update Statements</h3>
+                <ul>
+                    <li>Update statements are used to change or modify data inside a table</li>
+                    <li>Specify single row or many depending on statement</li>
+                    <li>Use unique identifiers to get correct rows</li>
+                </ul>    
+                <b>Update using unique column</b>
+                <code>Update TblName Set Name = 'Tim' Where ID = 2</code>
+                <b>Update using non-unique column</b>
+                <code>Update TblName Set Name = 'Sam' Where Name = 'David'</code>
+                
+                <h3>Delete Statements</h3>
+                <ul>
+                    <li>Delete statements are used to remove specific rows inside a table</li>
+                    <li>Use unique values to identify the correct rows to delete</li>
+                    <li>Deletes leave logs and continue identity values</li>
+                </ul>    
+                <b>Deleting rows using specific unique values</b>
+                <code>Delete From TblName Where ID = 1</code>
+                <b>Deleting rows using non-specific values</b>
+                <code>Delete From TblName Where Name = 'Richard'</code>
+
+                <h3>Truncate Statements</h3>
+                <ul>
+                    <li>Truncate will erase ALL data in a table and leave no log files or information behind</li>
+                    <li>Cannot be “rolled back” or have data recovered, with one exception</li>
+                    <li>Often debated to be in either DDL or DML</li>
+                </ul>
+                <b>General syntax</b>
+                <code>Truncate Table TblName</code>
+            </article>
+        </section>
+
+        <section class="main-section" id="Data_Query_Language">
+            <header>Data Query Language (DQL)</header>
+            <article>
+                <p>Data Query Language (DQL) is part of the base grouping of SQL sub-languages.
+                    DQL languages, are a classification of programming languages that developers use to define and 
+                    access databases, which are collections of organized data that users can access electronically.
+                </p>
+                <h3>Select, From, Where Statements</h3>
+                <ul>
+                    <li>Select - Used to pick which columns of data you'd like to fetch</li>
+                    <li>From - Used for selected which tables you'll fetch data from</li>
+                    <li>Where - Used to specific a criteria to sort data by. Uses operators</li>
+                </ul>
+                <b>Selecting all rows from a table</b>
+                <code>Select *  From TblName</code>
+                <b>Selecting specific rows </b>
+                <code>Select Col1, Col2, Col3 From TblName</code>
+                <b>Adding a condition</b>
+                <code>Select * From TblName Where ID = 2</code>
+
+                <h3>Group By, Having and Order By Statements</h3>
+                <ul>
+                    <li>Group By - Used to combine similar values in columns</li>
+                    <li>Having - Used to filter conditions for aggregates only</li>
+                    <li>Order By - Used to display the data by order of a specific column</li>
+                </ul>
+                <b>Grouping similar values</b>
+                <code>Select * From TblName Group By Name</code>
+                <b>Sorting aggregates</b>
+                <code>Select * From Tbl Having Sum(Price) > 30</code>
+                <b>Ordering data set by a column</b>
+                <code>Select * From TblName Order by ID desc</code>
+
+                <h3>Comparing the different orders</h3>
+                <p>
+                    <strong>Order We Write:</strong>  1-Select   2-From    3-Where   4-Group By   5-Having   6-Order By <br>
+                    <strong>Order SQL Server Executes:</strong> 1-From    2-Where    3-Group By    4-Having    5-Select    6-Order By
+                </p>
+            </article>
+        </section>
+
+        <section class="main-section" id="Constraints">
+            <header>Constraints</header>
+            <article>
+                <p>
+                    SQL constraints are used to specify rules for the data in a table. 
+                    Constraints are used to limit the type of data that can go into a table.
+                </p>
+                <h3>Different Types of Constraints</h3>
+                <ul>
+                    <li><b>Primary Key:</b>  one per table, Unique Clustered Index, Not Null</li>
+                    <li><b>Unique Key:</b> 999 Per Table, Unique NonClustered Index, one Null Allowed</li>
+                    <li><b>Foreign Key:</b> Can not exist before PK, Must be deleted before PK</li>
+                    <li><b>Null, Not null:</b> Are nulls allowed / not allowed </li>
+                    <li><b>Check:</b> Data must meet rule</li>
+                    <li><b>Default:</b> If null then this </li>
+                    <li><b>Data types (Kind of):</b> Char (2) - States, Varchar (12) - Phone, Money - Money!</li>
+                </ul>
+
+                <h3>Method 1</h3>
+                <ul>
+                    <li>In the first method, we create a table first and then use alter statements to add on the constraints at a later time</li>
+                    <li>Good for flexibility, allowing you to create tables and alter them on your own time</li>
+                    <li>Bad in that they rely on you or your team remembering to do that extra work later</li>
+                </ul>
+                <h3>Method 2</h3>
+                <ul>
+                    <li>In the second method, we create the table and constraints at the same time</li>
+                    <li>Constraints are specified for each column on the same line </li>
+                    <li>Good for order and making sure tables are created correctly</li>
+                    <li>Using PK and FK must be planned out</li>
+                </ul>
+                <h3>Method 3</h3>
+                <ul>
+                    <li>In the third method, we create the table and constraints at the same time, but this time separate the syntax into two parts</li>
+                    <li>We specify the constraints after the table but run them together as one</li>
+                    <li>Follows same setup as method 2, just more separated in looks</li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="main-section" id="Rules">
+            <header>Rules</header>
+            <article>
+                <p>
+                    A rule can be any expression valid in a WHERE clause and can include elements such as arithmetic operators, 
+                    relational operators, and predicates (for example, IN, LIKE, BETWEEN). A rule cannot reference columns or other 
+                    database objects. 
+                </p>
+                <ul>
+                    <li>Rules are cousins to constraints</li>
+                    <li>Rules are created as a general constraint to be applied to various tables</li>
+                    <li>Used instead of creating individual constraints for each table</li>
+                </ul>
+                <h3>How to Use Rules?</h3>
+                <ul>
+                    <li>Rules are created in their own syntax using a create statement</li>
+                    <code>Create Rule RuleName as &ltExpression&gt</code>
+                    <li>After rules are created, they must be bound to a column in a table</li>
+                    <li>One rule per column in a table</li>
+                    <code>Sp_bindrule RuleName, 'TblName.Column'</code>
+                </ul>
+            </article>
+        </section>
+
+        <section class="main-section" id="Cascade_Function">
+            <header>Cascade Function</header>
+            <article>
+                <p>
+                    CASCADE is used in conjunction with ON DELETE or ON UPDATE. 
+                    It means that the child data is either deleted or updated when the parent data is deleted or updated. 
+                </p>
+                <ul>
+                    <li>Causes changes to a Primary Key value to be reflected on the Foreign Key</li>
+                    <li>Cascade is put on the Foreign Key and will monitor the Primary Key values it's referencing</li>
+                    <li>Delete or Update</li>
+                </ul>
+                <h3>Different Cascade Options</h3>
+                <ul>
+                    <li>Cascade</li>
+                    <ul>
+                        <li>The changes made will “cascade” or fall down to the FK </li>
+                        <li>Deletes will be logged ONLY for PK table</li>
+                    </ul>
+                    <li>Set Null</li>
+                    <ul>
+                        <li> Give a null value in place of the FK value if there's a change</li>
+                        <li>Orphan</li>
+                    </ul>
+                    <li>Set Default</li>
+                    <ul>
+                        <li>Will set the value of the FK to be a default value </li>
+                        <li>Must have Default constraint</li>
+                    </ul>
+                    <li>No Action</li>
+                    <ul>
+                        <li>There will be no action taken on the FK </li>
+                    </ul>
+                </ul>
+                <h4><p>Attention: Delete Mandatory  Update Optional</p></h4>
+
+                <h3>Pro's and Con's of using Cascade</h3>
+                <ul>
+                    <li>Automated and will make things easier to change in regards to the Parent Child policy</li>
+                    <li>Easier doesn't equal better, as it'll be easier to make a mistake </li>
+                    <li>With no logging for cascaded deleted values, that information is gone</li>
+                    <li>Has to be used on each FK </li>                    
+                </ul>
+            </article>
+        </section>
+
+        <section class="main-section" id="Wild_Cards">
+            <header>Wild Cards</header>
+            <article>
+                <p>A wildcard character is used to substitute one or more characters in a string. Wildcard characters are used with the LIKE operator. 
+                    The LIKE operator is used in a WHERE clause to search for a specified pattern in a column.
+                </p>
+                <ul>
+                    <li>Wilds cards are used for “fuzzy” data</li>
+                    <li>Use the “Like” operator to begin using wild cards</li>
+                    <li>Can also use the “Not Like” operator</li>
+                    <li>Has Escape clause to look for symbols </li>
+                </ul>
+                <h3>Different Wild Cards to Use</h3>
+                <ul>
+                    <li>%
+                        <ul>
+                            <li>Used to specify the start of the wild card</li>
+                            <li>Beginning of string, end of string, or anywhere in string</li>
+                        </ul>
+                    </li>
+                    <li>[ ]
+                        <ul>
+                            <li>Used to give a range of values</li>
+                            <li>In order or Not</li>
+                        </ul>
+                    </li>
+                    <li>^ or !
+                        <ul>
+                            <li>Used to specify what the results should NOT match</li>
+                            <li>Easier to use Not Like</li>
+                        </ul>
+                    </li>
+                    <li>_
+                        <ul>
+                            <li>Used to mark an empty value where we know there's something, but not sure what
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <h3>When to use Wild Cards</h3>
+                <ul>
+                    <li>Wild cards are good for smaller data sets and finding data we're not sure about</li>
+                    <li>Takes time to process</li>
+                    <li>Can become extremely slow if there is too much data to process</li>
+                    <li>Exact data should typically be known, wilds cards should be last resort setup</li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="main-section" id="Select_Into">
+            <header>Select Into</header>
+            <article>
+                <h3>Select Into and Insert  Into</h3>
+                <ul>
+                    <li>Both are used to copy data from one table into another</li>
+                    <li>Select Into is used to create a new table as we take data</li>
+                    <li>Insert Into is used if a table already exists and we need to move data into it</li>
+                </ul>
+                <h3>Select Into vs Insert Into</h3>
+                <b>Select Into</b>
+                <ul>
+                    <li>Copies data from existing tables and can insert them into a newly created table in the same syntax</li>
+                    <code>Select * Into TblNew From TblName</code>
+                    <li>Can make empty tables</li>
+                    <code>Select * Into TblNew From TblName Where 0=1</code>
+                </ul>
+                <b>Insert Into</b>
+                <ul>
+                    <li>Used to copy data from one source into another</li>
+                    <li>Table must already be existing for Insert Into to work</li>
+                    <code>Insert into TblNew <br>Select * From TblName</code>
+                </ul>
+            </article>
+        </section>
+
+        <section class="main-section" id="System_Stored_Procedures">
+            <header>System Stored Procedures</header>
+            <article>
+                <ul>
+                    <li>System stored procedures are pre-compiled saved sets of T-SQL statements created by SQL server</li>
+                    <li>These are used to perform various operations around business logic</li>
+                    <li>Must be Executed</li>
+                </ul>
+                <h3>System Stored Procedure Examples</h3>
+                <ul>
+                    <li><b>SP_Help: </b>Displays metadata for the table</li>
+                    <li><b>SP_Helptext: </b>Displays the syntax for a saved object</li>
+                    <li><b>SP_Columns: </b> Displays metadata focusing on the columns in a table</li>
+                    <li><b>SP_HelpDB: </b>Displays metadata about the database </li>
+                    <li><b>SP_Who: </b>Displays information on users, sessions, and servers </li>
+                    <li><b>SP_Who2: </b>Displays more details on users, sessions, and servers</li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="main-section" id="System_Functions">
+            <header>System Functions</header>
+            <article>
+                <p>System Functions in SQL Server return objects, values, and settings in SQL Server.</p>
+                <ul>
+                    <li>System functions are saved T-SQL statements made to perform some business calculation, mainly mathematical in purpose</li>
+                    <li>Created by the system for SQL, these functions perform different mathematical or operational functions</li>
+                    <li>Called in Select Statements</li>
+                </ul>
+                <h3>System Date Functions</h3>
+                <ul>
+                    <li>GETDATE()
+                        <ul>
+                            <li>Fetch system date</li>
+                        </ul>
+                    </li>
+                    <li>DATEDIFF()
+                        <ul>
+                            <li>Find difference between two dates</li>
+                        </ul>
+                    </li>
+                    <li>DATEADD()
+                        <ul>
+                            <li>Add time to a date</li>
+                        </ul>
+                    </li>
+                    <li>DATEPART()
+                        <ul>
+                            <li>Fetch part of a date</li>
+                        </ul>
+                    </li>
+                    <li>YEAR()
+                        <ul>
+                            <li>Display Year</li>
+                        </ul>
+                    </li>
+                    <li>MONTH()
+                        <ul>
+                            <li>Display Month</li>
+                        </ul>
+                    </li>
+                    <li>DAY()
+                        <ul>
+                            <li>Display Day</li>
+                        </ul>
+                    </li>
+                    <li>WEEKDAY()
+                        <ul>
+                            <li>Display 1 - 7 with day</li>
+                        </ul>
+                    </li>
+                </ul>
+                <h3>Cast and Convert</h3>
+                <b>CAST</b>
+                <ul>
+                    <li>Used to change the data type from one to another type</li>
+                    <li>Data types must be compatiable</li>
+                </ul>
+                <p><strong>Example:</strong> Numbers from int will go to varchar but Characters will NOT go to INT.</p>
+                <b>CONVERT</b>
+                <ul>
+                    <li>Used to also change data types from one to another, following the same compatible rules</li>
+                    <li>Adds an extra feature of STYLE and will display the data in different ways</li>
+                    <li>Money, Dates, etc</li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="main-section" id="Aggregation_Functions">
+            <header>Aggregation Functions</header>
+            <article>
+                <p>Aggregate Functions are used to perform various mathematical operations.</p>
+                <ul>
+                    <li><b>SUM: </b>adds together all the values in a particular column.</li>
+                    <li><b>MIN: </b>return the lowest values in a particular column.</li>
+                    <li><b>MAX: </b>return the highest values in a particular column.</li>
+                    <li><b>AVG: </b>calculates the average of a group of selected values.</li>
+                    <li><b>COUNT: </b>counts how many rows are in a particular column.
+                    </li>
+                </ul>
+                <h3>Group By and Having</h3>
+                <b>Group By</b>
+                <ul>
+                    <li>Used to take similar values that would otherwise repeat during an aggregate, and combine them.</li>
+                    <li>Any non-aggregate columns called in the select statement must be in group by</li>
+                </ul>
+                <b>Having</b>
+                <ul>
+                    <li>Used to filter and create conditions for the aggregate values</li>
+                    <li>Aggregated values can only be filtered in Having, not Where</li>
+                    <li>Values are not limited to only what has been Selected</li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="main-section" id="String_Manipulation">
+            <header>String Manipulation</header>
+            <article>
+                <p>String manipulation is used to change the way string are seen, <strong>without changing</strong> the actual values in a table.
+                    It's used to simply show results in a specific way for a client or person without making permanent changes.</p>
+                <ul>
+                    <li>Aliases 
+                        <ul>
+                            <li>Used to display a different name of a column </li>
+                        </ul>
+                    </li>
+                    <li>Concatenation
+                        <ul>
+                            <li>Used to combine several string or characters together into a single string</li>
+                        </ul>
+                    </li>
+                    <li>Stuff
+                        <ul>
+                            <li>Used to insert or “stuff” one string into another</li>
+                            <li>Can replace characters or not</li>
+                        </ul>
+                    </li>
+                    <li>Replace
+                        <ul>
+                            <li>Used to find every instance of a string and replace it with another</li>
+                        </ul>
+                    </li>
+                    <li>Substring
+                        <ul>
+                            <li>Return part of a string</li>
+                        </ul>
+                    </li>
+                </ul>
+                <h3>Computed vs Derived Columns</h3>
+                <b>Computed</b>
+                <ul>
+                    <li>These columns are actually in the table and do not have any data in them, instead they compute results based on other columns</li>
+                    <li>Examples: Age, Year Working, Full Name</li>
+                </ul>
+                <b>Derived</b>
+                <ul>
+                    <li>These are columns that don't actually exist in the table, and are only formed for the duration of the syntax being performed</li>
+                    <li>Derived columns can be anything, as long as you don't need to keep the results of the string</li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="main-section" id="Ranking_Functions">
+            <header>Ranking Functions</header>
+            <article>
+                <p>
+                    Ranking Functions are used to perform some ranking operation on result data set.
+                    A ranking function does as its name suggest, assigns a numerical rank to each row. 
+                    Every ranking function must have an Over clause and Over clause must be followed by an Order By clause.
+                    in addition, a Partition By clause can be included.
+                </p>
+                <h3>Ranking Uses</h3>
+                <ul>
+                    <li>Giving integer values where there were none</li>
+                    <li>Visually allowing you to view data and see what ranks top to bottom</li>
+                    <li>Rank and Dense Rank can be used for assigning placements in sports</li>
+                    <li>Removing Duplicate values from a table or data set
+                        <ul>
+                            <li>Using a derived table, we can create a temp result and delete rows</li>
+                            <li>Using a view we can create a permanent virtual table and simply delete from it</li>
+                        </ul>
+                    </li>
+                </ul>
+                <h3>Types of Ranking Functions</h3>
+                <ul>
+                    <li>Row_Number()
+                        <ul>
+                            <li>Gives each row a sequential  number depending on the order and partition</li>
+                        </ul>
+                    </li>
+                    <li>Rank()
+                        <ul>
+                            <li>Give each row a number, duplicates will be given the same number and the next numbers will be skipped</li>
+                        </ul>
+                    </li>
+                    <li>Dense_Rank()
+                        <ul>
+                            <li>Give each row a number, duplicates will be given the same numbers, but the next numbers won’t skip</li>
+                        </ul>
+                    </li>
+                    <li>Ntile()
+                        <ul>
+                            <li>Will distribute rows into groups depending on number provided</li>
+                        </ul>
+                    </li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="main-section" id="NULL_Functions">
+            <header>NULL Functions</header>
+            <article>
+                <p>Null values are the placeholders in the database when we have the data missing, or the required data is not available.
+                    A null value is not a part of any particular data type, it is a flexible data type and can be put in the column of any
+                     data type be it string, int, blob or CLOB datatype. A value of NULL indicates that the value is unknown. A value of NULL 
+                     is different from an empty or zero value. NULL Functions are  used on the columns or expressions which has NULLs.</p>
+                <ul>
+                    <li><b>ISNULL: </b>T SQL function used to return the first non-null expression among two input arguments</li>
+                    <li><b>COALESCE: </b>T SQL function used to return the first non-null expression among multiple input arguments</li>
+                    <li><b>NULLIF: </b>Returns a null value if the two specified expressions are equal</li>
+                </ul>
+                <h3>Differences between ISNULL and COALESCE</h3>
+                <b>ISNULL</b>
+                <ul>
+                    <li>ISNULL function is a Transact-SQL function</li>
+                    <li>An expression involving ISNULL with non-null parameters is considered to be NOT NULL</li>
+                    <li>ISNULL function accepts only two parameters</li>
+                    <li>ISNULL function evaluates the value of first parameter and the second parameter value is limited to that length and datatype of first parameter</li>
+                    <li>ISNULL function can accept parameters with different datatypes</li>
+                    <li>Cannot be rewritten using CASE Statement</li>
+                </ul>
+                <b>COALESCE</b>
+                <ul>
+                    <li>COALESCE function is based on the ANSI SQL standard</li>
+                    <li>Expressions involving COALESCE with non-null parameters is considered to be NULL</li>
+                    <li>COALESCE function accepts multiple parameters</li>
+                    <li>COALESCE evaluates each parameter separately and only looks for non-null value</li>
+                    <li>All the parameters of COALESCE function must be of the same data type</li>
+                    <li>Can be rewritten using CASE statement</li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="main-section" id="Joins">
+            <header>Joins</header>
+            <article>
+                <p>
+                    A JOIN clause is used to combine rows from two or more tables, based on a related column between them.
+                    Joins are used to combine data sets on a horizontal plane. Join uses matching data in specified columns
+                     to combine or sort data. Must be considered, <strong>Columns DO NOT</strong> have to have the same name and keys.
+                </p>
+                <h3>Basic Types of Joins</h3>
+                <ul>
+                    <li><b>Inner Join</b>
+                        <ul>
+                            <li>Connect on only matching data</li>
+                            <li>Will only display values that match on both sides of the table, all others are excluded</li>
+                        </ul>
+                    </li>
+                    <li><b>Full Outer</b>
+                        <ul>
+                            <li>Display ALL values, matching and non-matching</li>
+                        </ul>
+                    </li>
+                    <li><b>Left Join</b>
+                        <ul>
+                            <li>Display the matching data that you'd see from inner join, and all the unique values from the left table</li>
+                        </ul>
+                    </li>
+                    <li><b>Right Join</b>
+                        <ul>
+                            <li>Same as left join, but now the unique values come from the right table</li>
+                        </ul>
+                    </li>
+                </ul>
+                <h3>Advanced Types of Joins</h3>
+                <ul>
+                    <li><b>Restricted Left Outer</b>
+                        <ul>
+                            <li>Display only the unique left values</li>
+                        </ul>
+                    </li>
+                    <li><b>Restricted Right Outer</b>
+                        <ul>
+                            <li>Display only the unique right values</li>
+                        </ul>
+                    </li>
+                    <li><b>Restricted Full Outer</b>
+                        <ul>
+                            <li>Display the unique non matching values of both tables</li>
+                        </ul>
+                    </li>
+                    <li><b>Cross Join</b>
+                        <ul>
+                            <li>Display every possible combination of all values in the designated columns</li>
+                            <li>Cartesian Product</li>
+                        </ul>
+                    </li>
+                    <li><b>Self Join</b>
+                        <ul>
+                            <li>Join a table to itself in some regard</li>
+                        </ul>
+                    </li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="main-section" id="Sub-Queries">
+            <header>Sub-Queries</header>
+            <article>
+                <p>
+                    A subquery is a query that is nested inside a SELECT , INSERT , UPDATE , or DELETE statement, or inside another subquery. 
+                    Subqueries are used to create filters or conditions using multiple tables without actually joining them. It Can be used 
+                    in different parts of a Select statement. There is two main type of subquery: Correlated & Non-Correlated.
+                </p>
+                <h3>Where to Put a Sub-Query</h3>
+                <ul>
+                    <li>Select Statement
+                        <ul>
+                            <li>Can be used to retrieve values in a select statement, but only if they return a single result</li>
+                        </ul>
+                    </li>
+                    <li>From Statement
+                        <ul>
+                            <li>Can be used to return an entire table, but must have an alias</li>
+                            <li>Derived Table</li>
+                        </ul>
+                    </li>
+                    <li>Where Statement
+                        <ul>
+                            <li>Most common use</li>
+                            <li>Used to filter results based on another table</li>
+                            <li>Correlated sub-queries will reference the outside level</li>
+                            <li>Non-Correlated will be independent</li>
+                            <li>Max level of nesting 32</li>
+                        </ul>
+                    </li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="main-section" id="Set_Operators">
+            <header>Set Operators</header>
+            <article>
+                <p>Set Operators are used to combine results sets like joins, however it is done in a vertical manner.
+                    They have many restrictions and must be used correctly for proper results.</p>
+                <ul>
+                    <li>The number of columns called in the first select statement must match the number of columns called in the second statement</li>
+                    <li>The metadata for the columns must match in the same order as well</li>
+                    <li>Order by clause can be used, but it will do nothing in the first select statement</li>
+                    <li>Highly recommended not to use the Select * operator, as it’s unlikely two tables will match</li>
+                </ul>
+                <ul>
+                    <li><b>Intersect</b>
+                        <ul>
+                            <li>Only display unique matching values within the selected columns</li>
+                            <li>Inner Join</li>
+                        </ul>
+                    </li>
+                    <li><b>Except</b>
+                        <ul>
+                            <li>Display the values in the first select statement MINUS any values found in the second select statement</li>
+                            <li>Restricted Left Outer Join</li>
+                        </ul>
+                    </li>
+                    <li><b>Union</b>
+                        <ul>
+                            <li>Combine all the data  in the columns specified into just a single data set, but only display unique values</li>
+                        </ul>
+                    </li>
+                    <li><b>Union All</b>
+                        <ul>
+                            <li>Combine all the data in the columns specified into a single data set, but also display duplicates as well as unique values</li>
+                        </ul>
+                    </li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="main-section" id="Views">
+            <header>Views</header>
+            <article>
+                <p>
+                    A view is often seen as a virtual table based on the result-set of an SQL statement.
+                    It displays data that you choose, but does not actually hold any data. Views are good
+                    for security since you can prevent showing extra data although, DML operations just happen on the table.
+                </p>
+                <h3>Types of Views with Rules</h3>
+                <b>Regular View</b>
+                <ul>
+                    <li>Cannot be made with Compute By</li>
+                    <li>Order By only with a Top clause</li>
+                    <li>No Select Into or Hints allowed</li>
+                    <li>Must reference a permanent object</li>
+                </ul>
+                <b>Schema Bound View</b>
+                <ul>
+                    <li>Must use a two part naming convention when specifying a Schema Bound View</li>
+                    <li>You must list each column needed, no Select * is allowed</li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="main-section" id="Dynamic_SQL">
+            <header>Dynamic SQL</header>
+            <article>
+                <p>
+                    Dynamic SQL is a programming technique that enables you to build SQL statements dynamically at runtime.
+                    Dynamic SQL or DSQL involves using variables, which are temporary objects used to hold values, to enable 
+                    a SQL statement to change (Dynamic means to be evolving, changing and open). In DSQL, variables can be used
+                    to change the output of the syntax.
+                </p>
+                <h3>How are Variables used?</h3>
+                <ul>
+                    <li>Variables must be declared within the syntax they're being used for</li>
+                    <li>Variables are query bound, but also have batch bound limits</li>
+                    <li>Variables can hold many types of data, or data sets</li>
+                    <li>Variables are displayed with an “@” symbol
+                        <ul>
+                            <li>@ = User Defined/Local</li>
+                            <li>@@ = System/Global</li>
+                        </ul>
+                    </li>
+                    <li>Variables are typically user defined, however SQL server has several system variables in place to hold info on SQL Server</li>
+                </ul>
+                <h3>System Variables</h3>
+                <ul>
+                    <li><b>@@Version</b>
+                        <ul>
+                            <li>Information about the version of SQL Server currently installed</li>
+                        </ul>
+                    </li>
+                    <li><b>@@Language</b>
+                        <ul>
+                            <li>Display the current language setting used in SQL Server</li>
+                        </ul>
+                    </li>
+                    <li><b>@@Rowcount</b>
+                        <ul>
+                            <li>Number of rows last affect</li>
+                        </ul>
+                    </li>
+                    <li><b>@@Error</b>
+                        <ul>
+                            <li>Display the numeric values of the last error to occur. If no error has happened in last statement, value will be 0</li>
+                        </ul>
+                    </li>
+                    <li><b>@@Identity</b>
+                        <ul>
+                            <li>Display last inserted value for an identity column</li>
+                        </ul>
+                    </li>
+                </ul>    
+            </article>
+        </section>
+
+        <section class="main-section" id="Table_Variables">
+            <header>Table Variables</header>
+            <article>
+                <p>
+                    The table variable is a special type of the local variable that helps to store data temporarily, similar to the temp table in SQL Server.
+                    Temporary tables that have the same restrictions as variables. Table variable is stored in Primary Memory (RAM). 
+                    Query and Batch bound, must be declared and have data inserted before operations can be done.
+                </p>
+                <h3>Table Comparison </h3>
+                <ul>
+                    <li><b>Permanent</b> &nbsp &nbsp Scope : Permanent, Storage : Secondary (HDD), Speed :3rd Place</li>
+                    <li><b>Derived</b>&nbsp &nbsp Scope : Query Bound, Storage : Secondary (HDD), Speed : 2nd Place</li>
+                    <li><b>Variable</b>&nbsp &nbsp Scope : Query + Batch, Storage : Primary (RAM), Speed : 1st Place</li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="main-section" id="CTEs">
+            <header>CTEs</header>
+            <article>
+                <p>
+                    CTE was introduced in SQL Server 2005, the common table expression (CTE) is a temporary named result set that you can reference 
+                    within a SELECT, INSERT, UPDATE, or DELETE statement. You can also use a CTE in a CREATE a view, as part of the view's SELECT query.
+                </p>
+                <b>Some of the features of CTEs are:</b>
+                <ul>
+                    <li>Temporary data set that can be self referencing </li>
+                    <li>View + Table Variable</li>
+                    <li>Often used to help display the syntax in a more presentable manner instead of just using numerous joins or sub-queries</li>
+                    <li>Common table expressions are often used for recursive purposes</li>
+                    <li>You can perform ONE operation after creating a Common Table Expression</li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="main-section" id="Temporary_Tables">
+            <header>Temporary Tables</header>
+            <article>
+                <p>
+                    A temporary table is a base table that is not stored in the database, but instead exists only while the database session 
+                    in which it was created is active.
+                </p>
+                <ul>
+                    <li>Temporary tables are session bound and last as long as you're session</li>
+                    <li>Two types of temporary tables, global and local</li>
+                    <li>Best used to working with temp data</li>
+                    <li>Stored in TempDB</li>
+                </ul>
+                <h3>Types of Temporary Tables</h3>
+                <b>Global Temp Tables</b>
+                <ul>
+                    <li>To specify Global Temp Tables you have ##TempTbl</li>
+                    <li>
+                        Unlike Local Temporary tables, that end when your session is done, global temporary tables
+                        will only end when the last person using a session on your server has ended
+                    </li>
+                </ul>
+                <b>Local Temp Tables</b>
+                <ul>
+                    <li>To specify a Local Temp Table you have #TempTbl</li>
+                    <li>
+                        Local tables are only active until your session has ended. So the table is not limited by 
+                        batches or queries, it's available until the current session it was created in has ended
+                    </li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="main-section" id="Control_Flow_Statements">
+            <header>Control Flow Statements</header>
+            <article>
+                <p>
+                    Control Flow statements are used to control how data will be used in a given statement.
+                    You are manipulating the flow of data, how it will be used, and what will qualify for the end solution.
+                </p>
+                <h3>While Loops</h3>
+                <ul>
+                    <li>Used to “loop” or cycle through a result set on a row by row basis</li>
+                    <li>Must use some integer column to keep track of the current rows</li>
+                    <li>Great for checking data in a table and sorting the rows based on some condition</li>
+                    <li>Uses variables for counters</li>
+                </ul>
+                <h3>If….Else Statements</h3>
+                <ul>
+                    <li>Uses IF conditions to specifies a series of different conditions that will control how data is used or flows</li>
+                    <li>Will use several Boolean conditions, either it must be true or false</li>
+                    <li>Often uses Begin and End for blocks of code that have more than one statement in them</li>
+                </ul>
+                <h3>Case Statements</h3>
+                <ul>
+                    <li>Uses a CASE and END block to specify a set of conditions and a series of multiple results depending on the data</li>
+                    <li>Mainly focuses on changing the value for a single column based on another column</li>
+                    <li>Example: When Weekday = 1 THEN 'Sunday'</li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="main-section" id="User_Defined_Stored_Procedures">
+            <header>User Defined Stored Procedures</header>
+            <article>
+                <p>
+                    User defined stored procedures are created by database developers or database administrators. 
+                    These SPs contains one more SQL statements to select, update, or delete records from database tables. 
+                    User defined stored procedure can take input parameters and return output parameters.
+                </p>
+                <ul>
+                    <li>User Defined Stored Procedures are just Stored Procedures, but created by the user</li>
+                    <li>Can have different Input and Output Parameters</li>
+                    <li>Can only RETURN int's</li>
+                    <li>Must be recompiled after time or changes</li>
+                </ul>
+                <h3>Parameters for Stored Proc's</h3>
+                <ul>
+                    <li>Input Parameters
+                        <ul>
+                            <li>Specify variables to be taken in when using a stored procedure</li>
+                        </ul>
+                    </li>
+                    <li>Output Parameters
+                        <ul>
+                            <li>Used to Return more than just numeric values</li>
+                            <li>Outputs or Returns are values that can be used in other operations</li>
+                        </ul>
+                    </li>
+                    <li>Default Parameters
+                        <ul>
+                            <li>Specify all parameters with a single default setting, and then make different conditions depending on what is given</li>
+                            <li>Very open in design, does take much more work and syntax</li>
+                        </ul>
+                    </li>
+                </ul>
+                <h3>Recompiling a Stored Procedure</h3>
+                <ul>
+                    <li>Alter Statement
+                        <ul>
+                            <li>Alter and recreate the Stored Procedure so that it's execution plan can be updated with the new data or tables</li>
+                        </ul>
+                    </li>
+                    <li>With Recompile
+                        <ul>
+                            <li>Makes a new execution plan each time the stored procedure is executed</li>
+                        </ul>
+                    </li>
+                    <li>System Stored Proc
+                        <ul>
+                            <li>Use SP_Recompile to recompile another stored procedure</li>
+                            <li>Easy to do and does not require that one have permissions like for other methods</li>
+                            <li>Easiest of the three methods</li>
+                        </ul>
+                    </li>
+                </ul>
+                <h3>Pro's and Con's of UDSP's</h3>
+                <b>PRO</b>
+                <ul>
+                    <li>Robust Error Handling</li>
+                    <li>Access to all types of tables</li>
+                    <li>Can return many outputs</li>
+                    <li>Can take many inputs</li>
+                    <li>Set Default inputs</li>
+                    <li>Use D-SQL</li>
+                    <li>Can have Nested SP's</li>
+                    <li>UDSP can use a UDF</li>
+                </ul>
+                <b>CON</b>
+                <ul>
+                    <li>Cannot output 2D data, only 1D or single values to be used</li>
+                    <li>Cannot be called in select statements, must be specifically Executed</li>
+                    <li>Must be recompiled do refresh the execution plans</li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="main-section" id="User_Defined_Functions">
+            <header>User Defined Functions</header>
+            <article>
+                <p>
+                    user-defined functions are routines that accept parameters, perform an action, such as a complex calculation, and 
+                    return the result of that action as a value. The return value can either be a single scalar value or a result set.
+                </p>
+                <h3>Types of User Defined Functions</h3>
+                <ul>
+                    <li>Determinant (Scalar)
+                        <ul>
+                            <li>Input values will directly affect the output or result set of the UDF</li>
+                        </ul>
+                    </li>
+                    <li>Non-Determinant
+                        <ul>
+                            <li>Input values will NOT directly affect the output or results of the UDF, other factors will</li>
+                        </ul>
+                    </li>
+                    <li>In-Line
+                        <ul>
+                            <li>Functions that do not have any Begin/End body for which to use. Comprised of just Return</li>
+                        </ul>
+                    </li>
+                    <li>Multi-Line / Table Value
+                        <ul>
+                            <li>General design, has Begin/End body and returns a value(s)</li>
+                        </ul>
+                    </li>
+                </ul>
+                <h3>Pro's and Con's of UDF's</h3>
+                <b>PRO</b>
+                <ul>
+                    <li>Easily used in joins and other Select statements</li>
+                    <li>Use of variables can allow for table variables with many results to be used</li>
+                    <li>Generally made for perform complex business calculations for some mathematical or analytical purpose</li>
+                </ul>
+                <b>CON</b>
+                <ul>
+                    <li>Scalar UDF's can slow SQL Server</li>
+                    <li>DML statements are not allowed in UDF</li>
+                    <li>Can not called a SP</li>
+                    <li>Does not have good Error Handling</li>
+                    <li>Often times avoided due to T-SQL performing better</li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="main-section" id="Triggers">
+            <header>Triggers</header>
+            <article>
+                <p>
+                    Triggers are database objects, actually, a special kind of stored procedure, which “reacts” to certain actions we 
+                    make in the database. The main idea behind triggers is that they always perform an action in case some event happens.
+                </p>
+                <ul>
+                    <li>Saved T-SQL code</li>
+                    <li>“Fires” automatically</li>
+                    <li>Can be made to automate certain processes that might require attention</li>
+                    <li>Run in background, hard to notice</li>
+                </ul>
+                <h3>Types of Triggers</h3>
+                <ul>
+                    <li>Instead Of Triggers
+                        <ul>
+                            <li>Runs and cancels the appropriate syntax</li>
+                            <li>Must complete the syntax the user started in Trigger Body</li>
+                            <li>Little need for cleaning up and issues, as they're stopped</li>
+                        </ul>
+                    </li>
+                    <li>After / For Triggers
+                        <ul>
+                            <li>Runs only after the appropriate syntax has completed</li>
+                            <li>No need to finish syntax of user in Trigger body</li>
+                            <li>High level of cleanup in case error happens</li>
+                        </ul>
+                    </li>
+                </ul>
+                <h3>Scopes of Triggers</h3>
+                <ul>
+                    <li>DML Triggers - Created on Table
+                        <ul>
+                            <li>Insert, Update, Delete</li>
+                            <li>Instead Of , After / For</li>
+                        </ul>
+                    </li>
+                    <li>DDL Triggers - Created on Database
+                        <ul>
+                            <li>Create, Alter, Drop</li>
+                            <li>After / For</li>
+                        </ul>
+                    </li>
+                    <li>Login Triggers - Created on Server
+                        <ul>
+                            <li>Logins to SQL Server</li>
+                            <li>After / For</li>
+                        </ul>
+                    </li>
+                </ul>
+                <h3>Magic Tables</h3>
+                <ul>
+                    <li>Inserted Magic Table</li>
+                    <li>
+                        When used in a trigger, all values that are inserted into a table are saved into
+                        the Inserted Magic Table first, then may or may not go to the target table
+                    </li>
+                    <li>Deleted Magic Table</li>
+                    <li>When used in a trigger, all values that are deleted from a table are saved in the deleted magic table before being logged </li>
+                    <li>Updates will use BOTH tables</li>
+                </ul>
+                <h3>DML Triggers</h3>
+                <ul>
+                    <li>Monitor Insert, Update, Delete</li>
+                    <li>Can use BOTH Instead Of and After / For triggers</li>
+                    <li>
+                        High focus on finishing the statements made by others if they meet your criteria to continue onward with the syntax
+                    </li>
+                </ul>
+                <h3>DDL Triggers</h3>
+                <ul>
+                    <li>Monitor Create, Alter, Drop</li>
+                    <li>Can only use AFTER or FOR triggers</li>
+                    <li>High focus on cleanup, which can be done many different ways depending on syntax</li>
+                    <li>If forgotten, they can prove to be troublesome later on as they would prevent DDL statements</li>
+                </ul>
+                <h3>Logon Triggers</h3>
+                <ul>
+                    <li>Monitor login events on the Server</li>
+                    <li>Can only use AFTER or FOR triggers</li>
+                    <li>Typically used for auditing or logging events that have taken place</li>
+                    <li>If messed up, they can prevent you from logging into SQL Server</li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="main-section" id="Indexes">
+            <header>Indexes</header>
+            <article>
+                <p>A database index is a data structure that improves the speed of data retrieval operations on a database table.</p>
+                <ul>
+                    <li>DBO's used to sort and optimize data fetch time</li>
+                    <li>Operate similar to index in a book</li>
+                    <li>When created, an index will create a dynamic Balance Tree</li>
+                    <li>Keys =/= Indexes</li>
+                    <li>Tables without a Clustered Index are called HEAP Tables</li>
+                    <li>Indexes can use a Max of 16 Columns or 900B of data </li>
+                </ul>
+                <h3>Balance Tree</h3>
+                <ul>
+                    <li>Composed of 3 main levels
+                        <ul>
+                            <li>Root Level</li>
+                            <li>Intermediate Level</li>
+                            <li>Leaf Page Level</li>
+                        </ul>
+                    </li>
+                    <li>Each Node is about 8KB in size
+                        <ul>
+                            <li>8060B for data</li>
+                            <li>132B for pointers</li>
+                            <li>8192B in Total</li>
+                        </ul>
+                    </li>
+                    <li>Each Index created will have a Balance tree structure to be used, but the type of Index will determine how data is stored in a Balance Tree</li>
+                    <li>Clustered Indexes will stored data in Leaf Pages and sort them based on the Key values of the column you choose</li>
+                    <li>Non-Clustered Indexes will NOT store data in the Leaf Pages, instead they'll point to the rows they're referencing</li>
+                </ul>
+                <h3>Clustered Index</h3>
+                <ul>
+                    <li>A clustered index will physically move the data from the table into it's Balance Tree</li>
+                    <li>The data is now matching physically and logically</li>
+                    <li>Data is sorted based on ascending order for the column chosen, this becomes the clustering key</li>
+                    <li>This is why there can only be 1 Clustered Index on a table, data can only be physically sorted and stored once</li>
+                    <li>Create Clustered Index NAME On TABLENAME (COL1,COL2)</li>
+                </ul>
+                <h3>Non-Clustered on HEAP</h3>
+                <ul>
+                    <li>A Non-Clustered Index on a HEAP table will have it's B-Tree use pointers to locate where the data is</li>
+                    <li>Non-Clustered Indexes on a HEAP table will use Row Identifiers to logically say where data is, but not physically move it</li>
+                    <li>Since Non-Clustered Indexes do not physically move or sort data, there can be many on a single table. Currently up to 999 different Indexes</li>
+                    <li>Row Identifiers will use a numbering system to find data. Extent - Page - Offset</li>
+                    <li>Create Non Clustered Index NAME On TABLENAME (COL1, COL2)</li>
+                </ul>
+                <h3>Non-Clustered on Clustered</h3>
+                <ul>
+                    <li>
+                        A Non-Clustered Index on a table with a Clustered Index must now grab data from the B-Tree of the CI. 
+                        So data will come up through the Root of the CI and fall into the Leaf Pages of the NCI
+                    </li>
+                    <li>The CI will use Key Identifiers that will take the clustering key of the CI to find data and bring it to the NCI Leaf Pages</li>
+                    <li>
+                        The Key Identifiers will store the key value in the Leaf Pages to help point to the data. 
+                        The key values will depend on the CI columns being used
+                    </li>
+                    <li>If looking for the name of an employee whose ID is 3, the key value might say Bruce : 3</li>
+                </ul>
+                <h3>Seek vs Scan in Indexes</h3>
+                <b>Seek</b>
+                <ul>
+                    <li>Seek out the direct data needed</li>
+                    <li>Faster and uses less resources if the query is designed for seeking data</li>
+                    <li>Goal for indexes is to provide the ability to Seek</li>
+                </ul>
+                <b>Scan</b>
+                <ul>
+                    <li>Scan a lot of data to find the information being sought after</li>
+                    <li>Slower than Seeking, but will still depend on the nature of the query being used to find data</li>
+                </ul>
+                <h3>Advanced Types of Indexes</h3>
+                <ul>
+                    <li>Covering Index
+                        <ul>
+                            <li>Used to fix Bookmark Lookup</li>
+                            <li>Include more columns up to 1023</li>
+                        </ul>
+                    </li>
+                    <li>Full Text Index
+                        <ul>
+                            <li>Allows indexing and searching for string or character based data</li>
+                        </ul>
+                    </li>
+                    <li>Filtered Index
+                        <ul>
+                            <li>Index only the values that fall into the condition</li>
+                            <li>Uses Where condition</li>
+                        </ul>
+                    </li>
+                    <li>Indexed Views
+                        <ul>
+                            <li>Allows for two Clustered indexes on the same data set</li>
+                            <li>Data kept in Sync</li>
+                        </ul>
+                    </li>
+                </ul>
+                <h3>Full Text Index</h3>
+                <ul>
+                    <li>3 Steps are taken in the creation of a full text index
+                        <ul>
+                            <li>Create Full Text Catalog</li>
+                            <li>Create Full Text Index</li>
+                            <li>Populate Index</li>
+                        </ul>
+                    </li>
+                    <li>After creation, two additional functions available for use</li>
+                    <li>FreeText()
+                        <ul>
+                            <li>Find all words with similar meanings</li>
+                            <li>College (University, School, etc)</li>
+                        </ul>
+                    </li>
+                    <li>Contains()
+                        <ul>
+                            <li>Find exact words or phrases</li>
+                            <li>Can use logical operators</li>
+                        </ul>
+                    </li>
+                </ul>
+                <h3>Indexed Views</h3>
+                <ul>
+                    <li>Common solution to question : “How can we have two CI's on a single table?”</li>
+                    <li>Same Table =/= Same Data Set</li>
+                    <li>Index MUST be a Unique Clustered Index</li>
+                    <li>All indexes are available and the best will be used for query</li>
+                    <li>The index starting MUST be a Schemabound Index before adding a Unique Clustered Index</li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="main-section" id="Cursors">
+            <header>Cursors</header>
+            <article>
+                <p>
+                    A SQL cursor is a database object that retrieves data from result sets one row at a time. 
+                    The cursor in SQL can be used when the data needs to be updated row by row.
+                </p>
+                <ul>
+                    <li>Temporary database object used to perform operations on a row by row basis</li>
+                    <li>Good when modifications are need to be performed on individual rows in a table instead of a mass update</li>
+                    <li>Often replaced with While Loop</li>
+                </ul>
+                <h3>Steps in using a Cursor</h3>
+                <ul>
+                    <li>1 - Declare
+                        <ul>
+                            <li>Declare and specify the type of cursor being used</li>
+                        </ul>
+                    </li>
+                    <li>2 - Open
+                        <ul>
+                            <li>Open and populate the cursor with data</li>
+                        </ul>
+                    </li>
+                    <li>3 - Fetch
+                        <ul>
+                            <li>Retrieve rows from the cursor one at a time</li>
+                            <li>First, Last, Next, Prior</li>
+                        </ul>
+                    </li>
+                    <li>4 - Close
+                        <ul>
+                            <li>Closes the cursor so it won't be used anymore for the operations</li>
+                        </ul>
+                    </li>
+                    <li>5 - Deallocate
+                        <ul>
+                            <li>Deletes the cursor definition and releases the resources taken up by the cursor for the process</li>
+                        </ul>
+                    </li>
+                </ul>
+                <h3>Cursor Options</h3>
+                <ul>
+                    <li>Cursor Scope
+                        <ul>
+                            <li>Global</li>
+                            <li>Local</li>
+                        </ul>
+                    </li>
+                    <li>Cursor Movement
+                        <ul>
+                            <li>Forward_Only: From first row to the last in that order - Fetch Next</li>
+                            <li>Scroll: Can go either way and use all Fetch options</li>
+                            <li>Fetch_status: 0 , -1 , -2</li>
+                        </ul>
+                    </li>
+                    <li>Cursor Types
+                        <ul>
+                            <li>Static: Makes temp copy of data</li>
+                            <li>Keyset: Sets order using CI</li>
+                            <li>Dynamic: Uses all data changes in results</li>
+                            <li>Fast_Forward: Makes Forward_Only, Read_Only cursor, locking the data from changes</li>
+                        </ul>
+                    </li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="main-section" id="Bulk_Insert,_BCP">
+            <header>Bulk Insert, BCP</header>
+            <article>
+                <p>
+                    BThe SQL Server bulk copy feature supports the transfer of large amounts of data into or
+                    out of a SQL Server table or view. Data can also be transferred out by specifying a SELECT statement.
+                     The data can be moved between SQL Server and an operating-system data file, such as an ASCII file. 
+                </p>
+                <h3>Bulk Copy Program</h3>
+                <ul>
+                    <li>BCP uses the CMD of the system, so it is command line driven</li>
+                    <li>Since it uses the CMD, it is avoiding any GUI or software, making it the fastest way for communication between DBMS and RDBMS</li>
+                    <li>BCP allows you to either pull data from SQL server or move data into SQL server from system files</li>
+                </ul>
+                <h3>Bulk Insert</h3>
+                <ul>
+                    <li>Bulk Insert is executed in SQL server and used in a query</li>
+                    <li>Can only INSERT data into SQL, so only one direction with bulk data</li>
+                    <li>Since being used in queries, it can be logged, use transactions, etc</li>
+                    <li>Slower than Bulk Copy Program</li>
+                </ul>
+                <h3>Differences Between Bulk Insert & BCP</h3>
+                <b>Bulk Insert</b>
+                <ul>
+                    <li>SQL Server Query</li>
+                    <li>Import data only</li>
+                    <li>Can be logged</li>
+                    <li>Can be used with transactions and error handling</li>
+                    <li>Slower due to use of software</li>
+                </ul>
+                <b>Bulk Copy Program</b>
+                <ul>
+                    <li>Command Line Utility for the system, CMD</li>
+                    <li>Can import and export data from SQL server to system files</li>
+                    <li>No direct option for performing error handling, logging, or transactions</li>
+                    <li>Faster of the two</li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="main-section" id="Error_Handling">
+            <header>Error Handling</header>
+            <article>
+                <p>
+                    Error handling in SQL Server gives us control over the Transact-SQL code. 
+                    It's a concept of dealing with Errors BEFORE they happen. Error Handling could be considered as Preventive maintenance
+                    due better to prevent than deal with issues.
+                </p>
+                <h3>Methods of Error Handling</h3>
+                <ul>
+                    <li>RaisError
+                        <ul>
+                            <li>Create Custom Errors</li>
+                            <li>Levels
+                                <ul>
+                                    <li>0-10 Warning</li>
+                                    <li>11-18 Critical</li>
+                                    <li>19-24 System Critical</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>@@Error
+                        <ul>
+                            <li>Retrieve the error message number for last statement run</li>
+                        </ul>
+                    </li>
+                    <li>Try….Catch
+                        <ul>
+                            <li>Allows to monitor for error, if error then execute Catch, Else continue</li>
+                        </ul>
+                    </li>
+                    <li>If…Else
+                        <ul>
+                            <li>Mainly for logical use, one can anticipate possible errors and make proper conditions</li>
+                        </ul>
+                    </li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="main-section" id="Transacton_Control_Language">
+            <header>Transacton Control Language</header>
+            <article>
+                <p>
+                    A single unit of work in a database is formed after the consecutive execution of commands is known as a transaction.
+                    There are certain commands present in SQL known as TCL commands that help the user manage the transactions that take place in a database.
+                </p>
+                <ul>
+                    <li>A unit of work, a single statement</li>
+                    <li>By default, transactions are set to Auto Commit</li>
+                    <li>Commit
+                        <ul>
+                            <li>Finalize the statement and save changes</li>
+                        </ul>
+                        </li>
+                    <li>Rollback
+                        <ul>
+                            <li>Undo all statements or changes</li>
+                        </ul>
+                        </li>
+                </ul>
+                <h3>Types of Transactions</h3>
+                <b>Implicit</b>
+                <ul>
+                    <li>Set Implicit_Transactions On</li>
+                    <li>Allows you to run transactions without saying Begin Trans for each one</li>
+                    <li>At the end of the transactions statements, you choose Commit or Rollback</li>
+                    <li>Slower in performance</li>
+                </ul>
+                <b>Explicit</b>
+                <ul>
+                    <li>Requires you to specifically say when a transaction Begins and then either Commit or Roll it back</li>
+                    <li>Doesn't require statements to be separated by GO statements</li>
+                    <li>Faster in performance</li>
+                </ul>
+                <h3>ACID Properties</h3>
+                <ul>
+                    <li>Automaticity
+                        <ul>
+                            <li>Transactions will be “all or nothing”</li>
+                        </ul>
+                    </li>
+                    <li>Consistency
+                        <ul>
+                            <li>Data will always be valid for each transaction</li>
+                        </ul>
+                    </li>
+                    <li>Isolation
+                        <ul>
+                            <li>Transactions will not interfere with each other</li>
+                        </ul>
+                    </li>
+                    <li>Durability
+                        <ul>
+                            <li>Transactions will remain committed and final</li>
+                        </ul>
+                    </li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="main-section" id="Analytical_Functions">
+            <header>Analytical Functions</header>
+            <article>
+                <ul>
+                    <li>SQL Server supports many analytic functions</li>
+                    <li>Analytic functions compute values based on a group of rows</li>
+                    <li>Analytic Functions explained in this session are  used to get values from previous, next rows within a sorted group of rows</li>
+                </ul>
+                <h3>LAG and LEAD</h3>
+                <b>LAG</b>
+                <ul>
+                    <li>Used to access data from a previous row/s in the same result set without using a self-join or correlated subquery</li>
+                    <li>Uses OVER clause to define window in which values are sorted to get previous rows</li>
+                    <li>PARTITION BY is Optional and ORDER BY is mandatory</li>
+                    <li>Takes 3 parameters
+                        <ul>
+                            <li>Scalar Expression</li>
+                            <li>Offset (Optional)</li>
+                            <li>Default (Optional)</li>
+                        </ul>
+                    </li>
+                </ul>
+                <b>LEAD</b>
+                <ul>
+                    <li>Used to access data from next row/s in the same result set without using a self-join or correlated subquery</li>
+                    <li>Uses OVER clause to define window in which values are sorted to get next rows</li>
+                    <li>PARTITION BY is Optional and ORDER BY is mandatory</li>
+                    <li>Takes 3 parameters
+                        <ul>
+                            <li>Scalar Expression</li>
+                            <li>Offset (Optional)</li>
+                            <li>Default (Optional)</li>
+                        </ul>
+                    </li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="main-section" id="Merge_OUTPUT">
+            <header>Merge _ OUTPUT</header>
+            <article>
+                <ul>
+                    <li>Merge statement used to perform Insert, Update, and Delete operation in one statement</li>
+                    <li>Compare Target table and Source table/data set</li>
+                    <li>Good for syncing two tables</li>
+                </ul>
+                <h3>When to Use Merge Joins</h3>
+                <ul>
+                    <li>Merge statement requires a semi-colon as statement terminator else raises an error</li>
+                    <li>Can use Output clause to access Magic Tables</li>
+                    <li>Great for Conditional DML statements</li>
+                </ul>
+                <h3>Keywords used in Merge</h3>
+                <ul>
+                    <li>Merge
+                        <ul>
+                            <li>Specify Target table on which DML operations has to be applied</li>
+                        </ul>
+                    </li>
+                    <li>Using
+                        <ul>
+                            <li>Specify Source table/dataset to be used for comaparing the target table</li>
+                        </ul>
+                    </li>
+                    <li>On
+                        <ul>
+                            <li>Specify columns to compare from Source and Target</li>
+                        </ul>
+                    </li>
+                    <li>Output
+                        <ul>
+                            <li>Can access Inserted and Deleted magic tables to see data affected</li>
+                        </ul>
+                    </li>
+                    <li>When Matched
+                        <ul>
+                            <li>Conditional values must match</li>
+                            <li>Update or Delete</li>
+                        </ul>
+                    </li>
+                    <li>When Not Matched by Target
+                        <ul>
+                            <li>Conditional values do not match in Target</li>
+                            <li>Insert</li>
+                        </ul>
+                    </li>
+                    <li>When Not Matched by Source
+                        <ul>
+                            <li>Conditional values do not match in Source</li>
+                            <li>Update or Delete</li>
+                        </ul>
+                    </li>
+                </ul>
+                <h3>Simulate Joins with Match</h3>
+                <ul>
+                    <li>Inner Join = When Matched</li>
+                    <li>Left Outer Join =  When Not Matched By Target</li>
+                    <li>Right Outer Join = When Not Matched By Source</li>
+                    <li>Full Outer Join = When Not Matched By Target AND When Not Matched By Source</li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="main-section" id="PIVOT_and_UNPIVOT">
+            <header>PIVOT and UNPIVOT</header>
+            <article>
+                <p>
+                    Pivot and Unpivot in SQL are two relational operators that are used to convert a table expression into another. 
+                    Pivot in SQL is used when we want to transfer data from row level to column level and Unpivot in SQL is used 
+                    when we want to convert data from column level to row level.
+                </p>
+                <h3>Relational Operators</h3>
+                <ul>
+                    <li>PIVOT and UNPIVOT are relational operators to change a table-valued expression into another table</li>
+                    <li>PIVOT rotates a table-valued expression by turning the unique values from one column in the expression into multiple columns in the output,
+                        and performs aggregations where they are required on any remaining column values that are wanted in the final output</li>
+                    <li>UNPIVOT performs the opposite operation to PIVOT by rotating columns of a table-valued expression into column values</li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="main-section" id="Column_Store_Index">
+            <header>Column Store Index</header>
+            <article>
+                <p>
+                    Columnstore indexes are the standard for storing and querying large data warehousing fact tables. 
+                    This index uses column-based data storage and query processing to achieve gains up to 10 times the
+                    query performance in your data warehouse over traditional row-oriented storage.
+                </p>
+                <ul>
+                    <li>Column Store Index (CSI) is a new Index type introduced in SQL Server 2012</li>
+                    <li>A CSI is a DBO for storing, retrieving and managing data by using a columnar data format, called a column store</li>
+                    <li>CSI stores the data in the form of Segments and each segment can hold the data from only one column</li>
+                    <li>CSI improves the query performance up to 10X</li>
+                    <li>CSI supports high data compression</li>
+                </ul>
+                <h3>Data Retrieval</h3>
+                <ul>
+                    <li>CSI uses LOB pages to store column segments</li>
+                    <li>Size of each LOB page is 2 GB</li>
+                    <li>CSI uses an IAM page similar to regular index to navigate to LOB pages to retrieve data</li>
+                    <li>Every segment has a Hash Dictionary</li>
+                </ul>
+                <h3>Limitations of CSI</h3>
+                <ul>
+                    <li>2012 only supports Non Clustered CSI</li>
+                    <li>Only one CSI is allowed on a table</li>
+                    <li>Not a good option for data seek</li>
+                    <li>Data cannot be updated on columns with Non Clustered Column Store Index</li>
+                </ul>
+                <h3>Differences</h3>
+                <b>Regular Indexes</b>
+                <ol>
+                    <li>Stores data in the form of Rows</li>
+                    <li>Uses B Tree structure for faster retrieval of data</li>
+                    <li>Multiple indexes allowed on a table</li>
+                    <li>Clustered Index is allowed</li>
+                    <li>Data is updatable on in rows on which indexes are created</li>
+                    <li>User can SEEK data</li>
+                </ol>
+                <b>Column Store Index</b>
+                <ol>
+                    <li>Stores data in the form of columns</li>
+                    <li>No B Tree</li>
+                    <li>Only one column store index is allowed</li>
+                    <li>Clustered Index is not allowed in SS 2012</li>
+                    <li>Data is not updatable on rows on which Index is created</li>
+                    <li>SEEK is not supported</li>
+                </ol>
+            </article>
+        </section>
+
+        <section class="main-section" id="Index_Fragmentation_and_Maintenance">
+            <header>Index Fragmentation and Maintenance</header>
+            <article>
+                <p>
+                    The index fragmentation is the index performance value in percentage, which can be fetched by SQL Server DMV. 
+                    According to the index performance value, users can take the indexes in maintenance by revising the fragmentation 
+                    percentage with the help of Rebuild or Reorganize operation.
+                </p>
+                <ul>
+                    <li>Caused by DML actions</li>
+                    <li>Creates empty spaces in the B-Tree known as memory bubbles</li>
+                    <li>Page splitting can also cause fragmentation when data needs more room than allowed in a single leaf node</li>
+                </ul>
+                <h3>Types of Fragmentation </h3>
+                <b>Internal Fragmentation</b>
+                <ul>
+                    <li>Leaf nodes not filled to fullest capacity due to memory bubbles</li>
+                    <li>Focus on Balance Tree and data inside</li>
+                    <li>If there is a NCI on a CI, then the memory bubbles on the CI will cascade up through the NCI</li>
+                </ul>
+                <b>External Fragmentation</b>
+                <ul>
+                    <li>Logical order does not match Physical in HDD</li>
+                    <li>Similar to typical Fragmentation in HDD's</li>
+                    <li>Causes serious issues due to increase in Fetch operations which must search for data in the HDD</li>
+                </ul>
+                <h3>Find Fragmentation Levels</h3>
+                <ul>
+                    <li>GUI
+                        <ul>
+                            <li>Right click and check the properties of index, on the right column there'll be Fragmentation</li>
+                        </ul>
+                    </li>
+                    <li>DB Console Command
+                        <ul>
+                            <li>DBCC showcontig('tbl',Index)</li>
+                            <li>Find info displayed about the indexes on the table</li>
+                        </ul>
+                    </li>
+                    <li>Dynamic Management Views
+                        <ul>
+                            <li>Using a system view that has dynamic values we search for two columns</li>
+                            <code>
+                                sys.dm_db_index_physical_stats ( 
+                                { database_id | NULL | 0 | DEFAULT }
+                              , { object_id | NULL | 0 | DEFAULT }
+                              , { index_id | NULL | 0 | -1 | DEFAULT }
+                              , { partition_number | NULL | 0 | DEFAULT }
+                              , { mode | NULL | DEFAULT }
+                              )
+                            </code>
+                            <li>Modes : Sample / Detailed</li>
+                        </ul>
+                    </li>
+                </ul>
+                <h3>Maintenance on Indexes</h3>
+                <b>Reorganize</b>
+                <ul>
+                    <li>Easier and less resource heavy</li>
+                    <li>Fixes the physical ordering of leaf pages and compresses data to fix empty spaces</li>
+                    <li>If canceled mid way, it will stop and end where it's at. No rollback is taken</li>
+                    <li>External Guidelines
+                        <ul>
+                            <li>5% - 30%</li>
+                        </ul>
+                    </li>
+                    <li>Internal Guidelines
+                        <ul>
+                            <li>95% - 70%</li>
+                        </ul>
+                    </li>
+                </ul>
+                <b>Rebuild</b>
+                <ul>
+                    <li>Heavier and more resource consuming</li>
+                    <li>Creates an entirely new Balance Tree structure for the index</li>
+                    <li>= Dropping old / + New </li>
+                    <li>If canceled mid way, it will roll back its operations</li>
+                    <li>External Guidelines
+                        <ul>
+                            <li>30% - 100%</li>
+                        </ul>
+                    </li>
+                    <li>Internal Guidelines
+                        <ul>
+                            <li>70% - 0%</li>
+                        </ul>
+                    </li>
+                </ul>
+                <h3>Additional Options for Rebuild</h3>
+                <ul>
+                    <li>Fillfactor
+                        <ul>
+                            <li>Give the percentage of space to be allocated for data in the leaf pages for the rebuild</li>
+                        </ul>
+                    </li>
+                    <li>Pad_Index
+                        <ul>
+                            <li>Apply the percentage for fill factor to all levels of the Balance Tree</li>
+                        </ul>
+                    </li>
+                    <li>Online
+                        <ul>
+                            <li>Allows for the data in the underlying table to still be queried and updated as the index is created</li>
+                        </ul>
+                    </li>
+                    <li>Statistics_Norecompute
+                        <ul>
+                            <li>Keep the original stats</li>
+                        </ul>
+                    </li>
+                    <li>Sort_In_TempDB
+                        <ul>
+                            <li>Create using TempDB</li>
+                        </ul>
+                    </li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="main-section" id="Locks_and_Isolation_Levels">
+            <header>Locks and Isolation Levels</header>
+            <article>
+                <h3>Locks in SQL</h3>
+                <b>Shared Locks</b>
+                <ul>
+                    <li>
+                        Shared locks allow multiple users to SELECT the same data, but none can modify the data as it's being read.
+                        By default the shared lock will be released as soon as the data is read, unless specified otherwise
+                    </li>
+                </ul>
+                <b>Exclusive Locks</b>
+                <ul>
+                    <li>Exclusive locks prevent access to the same data by multiple transactions. No other transactions can read or modify the data</li>
+                    <li>Commonly used for DML operations to make sure data isn't modified by different operations</li>
+                </ul>
+                <b>Update Locks</b>
+                <ul>
+                    <li>
+                        Fixes a common deadlock issue, often an update between two transactions will result in two exclusive locks on the same data.
+                        -However, an update lock can be given to only one transaction and if that transaction does not update, then it will convert 
+                        to an exclusive lock, otherwise it'll become a shared lock
+                    </li>
+                </ul>
+                <b>Intent Locks</b>
+                <ul>
+                    <li>
+                        Intent locks are SQL server's way of reserving data to be locked. Lets say we want to use a table and specify a shared lock,
+                        SQL server places an intent shared lock on the table so no one else places a lock on it to prevent us from using it
+                    </li>
+                    <li>I.Shared I.Exclusive I.S&E</li>
+                </ul>
+                <b>Schema Locks</b>
+                <ul>
+                    <li>
+                        Schema locks are used when there is a DDL operation being performed on a table. This doesn't prevent shared or exclusive locks,
+                        so people can still use the data. It does prevent OTHER DDL operations from occurring on the same table
+                    </li>
+                </ul>
+                <b>Bulk Update Locks</b>
+                <ul>
+                    <li>
+                        Prevents other processes that are not bulk operations copying data into a specified table 
+                        from having any access to the data during the process
+                    </li>
+                    <li>To use this lock there must be TABLOCK specified (Hint)</li>
+                </ul>
+                <h3>Isolation Levels in SQL</h3>
+                <b>Read Uncommitted</b>
+                <ul>
+                    <li>Data can be read even if it is being modified</li>
+                    <li>No shared locks used on table</li>
+                    <li>No exclusive locks used on table</li>
+                    <li>Often results in “dirty data”</li>
+                    <li>Least restrictive </li>
+                    <li>Same as NOLOCK (Hint)</li>
+                </ul>
+                <b>Read Committed</b>
+                <ul>
+                    <li>Data cannot be read that has been modified and not committed</li>
+                    <li>Prevents “dirty data”</li>
+                    <li>Data can be modified by other transactions, even if another transaction is running</li>
+                    <li>Creates Non-Repeatable Reads or Phantom Data</li>
+                    <li>Can use Snapshot</li>
+                </ul>
+                <b>Repeatable Read</b>
+                <ul>
+                    <li>Data cannot be read that has been modified and not committed</li>
+                    <li>Data cannot be modified that has been read and not committed</li>
+                    <li>Shared locks are place on all data read</li>
+                    <li>New rows can still be inserted that fall into the search</li>
+                    <li>If it retries and gets new data, it'll count as Phantom Data</li>
+                </ul>
+                <b>Snapshot</b>
+                <ul>
+                    <li>Takes a copy of the data being read or modified</li>
+                    <li>ALLOW_SNAPSHOT_ISOLATION must be on to use </li>
+                    <li>Snapshot cannot be used if a transaction is in another isolation level. Meaning it can't be set during the middle of a transaction</li>
+                </ul>
+                <b>Serializable</b>
+                <ul>
+                    <li>Data cannot be read that has been modified and not committed</li>
+                    <li>Data cannot be modified that has been read and not committed</li>
+                    <li>Cannot insert new rows into the table that falls in the search range</li>
+                    <li>Uses Range Locks</li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="main-section" id="Partitions">
+            <header>Partitions</header>
+            <article>
+                <p>
+                    Partitioning in SQL Server divides the information into the smaller storage groups; It is about table data and indexes.
+                    Partition function can be used with the table column when a table creates.
+                    A partition can be defined with the name and its storage attributes.
+                </p>
+                <ul>
+                    <li>Partitioning is the process of breaking or separating something into smaller pieces</li>
+                    <li>Partitioning a HDD allows for smaller, separate instances</li>
+                    <li>Breaking data in a table down into smaller groupings allow for faster processing</li>
+                    <li>Each partition created, if there is an index, will have a separate B-Tree</li>
+                </ul>
+                <h3>Steps in Creating a Partition</h3>
+                <ul>
+                    <li>Create a Partition Function</li>
+                    <li>Create File Groups & Assign a File to Each</li>
+                    <li>Create a Partition Scheme</li>
+                    <li>Create/Modify a Table/Index with Partition Scheme</li>
+                </ul>
+                <h3>Partition Point to Consider</h3>
+                <ul>
+                    <li>Partitioning can create extra index B-Tree's to monitor. Be sure the table should have an index at all</li>
+                    <li>Partitioning can be done on tables easily, undoing them requires dropping the table</li>
+                    <li>Partitioning takes time and memory, don't partition unless it's necessary</li>
+                    <li>Usually only performed in Data Warehouses</li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="main-section" id="Logins_and_Users">
+            <header>Logins and Users</header>
+            <article>
+                <h3>What is a Login?</h3>
+                <ul>
+                    <li>A login is what allows someone to have access to the Server</li>
+                    <li>Logins use the authentication modes, either Windows Credentials or SQL / Mixed Credentials</li>
+                    <li>General logins can be made for a group of people who are performing similar duties</li>
+                </ul>
+                <h3>Server Roles</h3>
+                <ul>
+                    <li><b>Bulkadmin -</b> Bulk operations like BI</li>
+                    <li><b>Dbcreator -</b> Create and drop databases</li>
+                    <li><b>Diskadmin -</b> Manage disk files on system</li>
+                    <li><b>Processadmin -</b> Control processes running in the database engine</li>
+                    <li><b>Public -</b> Default role</li>
+                    <li><b>Securityadmin -</b> Manage logins and users, do DCL</li>
+                    <li><b>Serveradmin -</b> Server wide configuration</li>
+                    <li><b>Setupadmin -</b> add linked servers</li>
+                    <li><b>Sysadmin -</b> Everything</li>
+                </ul>
+                <h3>Additional Options</h3>
+                <ul>
+                    <li><b>User Mapping -</b> lists all the possible databases and database roles of those databases that can be applied to the Login</li>
+                    <li><b>Securables -</b> Securities and permissions that can be granted to the login</li>
+                    <li><b>Status -</b> Allows for enabling or disabling of login and well as authentications and permissions</li>
+                </ul>
+                <h3>What is a User?</h3>
+                <ul>
+                    <li>Database security access to specific databases</li>
+                    <li>All logins must be mapped to a user to have access to a database</li>
+                    <li>Partially contained DB's can have users without logins</li>
+                </ul>
+                <h3>Comparison</h3>
+                <b>Logins</b>
+                <ul>
+                    <li>Used for server level permissions</li>
+                    <li>Logins must be mapped to a user for access to a database</li>
+                    <li>A single login can be linked to many users, making DCL statements easier</li>
+                    <li>Instance Level Security Principal</li>
+                    <li>Server Roles</li>
+                </ul>
+                <b>Users</b>
+                <ul>
+                    <li>Used for database level permissions</li>
+                    <li>There can be users without a login if the database is partially contained</li>
+                    <li>A single user can not be assigned to multiple logins</li>
+                    <li>Database Level Security Principal</li>
+                    <li>Database Roles</li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="main-section" id="Data_Control_Language">
+            <header>Data Control Language</header>
+            <article>
+                <p>
+                    A data control language (DCL) is a syntax similar to a computer programming language used to control access
+                    to data stored in a database (authorization). In particular, it is a component of Structured Query Language (SQL).
+                     Data Control Language is one of the logical group in SQL Commands.
+                </p>
+                <h3>DCL Overview</h3>
+                <ul>
+                    <li>Data Control Language is syntax used to control what permissions a user can have</li>
+                    <li>You can create Roles that users can be grouped into and specify permissions there</li>
+                    <li>You can choose what tables someone in a role can access and even what statements can be performed</li>
+                </ul>
+                <h3>Grant</h3>
+                <ul>
+                    <li>Used to “grant” or give permissions to a user or role</li>
+                    <li>Examples
+                        <ol>
+                            <li>Create table permission to the role</li>
+                            <code>Grant Create Table to TestRole</code>
+                            <li>Add user to the role</li>
+                            <code>Exec sp_addrolemember 'TestRole', 'TestUser'</code>
+                        </ol>
+                    </li>
+                </ul>
+                <h3>Revoke</h3>
+                <ul>
+                    <li>Revoke is used to take away permissions given, whether they are Grant or Deny permissions</li>
+                    <li>Examples
+                        <ul>
+                            <li>Revoking grant permission</li>
+                            <code>Revoke Create Table to TestRole</code>
+                        </ul>
+                    </li>
+                </ul>
+                <h3>Deny</h3>
+                <ul>
+                    <li>Deny is preventing someone from having access at all</li>
+                    <li>Deny is not the same as revoke, as revoke is made to take back, deny is made to say NO</li>
+                    <li>If grant and deny permission are given to the same role, deny will take over</li>
+                    <li>Example</li>
+                    <code>Deny Create Table to TestRole</code>
+                </ul>
+            </article>
+        </section>
+
+        <section class="main-section" id="Recovery_Models,_Backups,_Job_Agent">
+            <header>Recovery Models, Backups, Job Agent</header>
+            <article>
+                <p>
+                    A recovery model is a database property that controls how transactions are logged, whether the transaction log requires
+                    (and allows) backing up, and what kinds of restore operations are available. Three recovery models exist: simple, full, 
+                    and bulk-logged.
+                </p>
+                <ul>
+                    <li>Database property that controls how transactions are logged and what restore operations are available</li>
+                    <li>Typically a database uses Full or Simple recovery models</li>
+                    <li>Can be switched at any time</li>
+                </ul>
+                <h3>Recovery Models</h3>
+                <ul>
+                    <li>Simple
+                        <ul>
+                            <li>Little to no log backups</li>
+                            <li>Reclaims space used by logs to keep requirements small</li>
+                            <li>Unable to use Log Shipping, AlwaysOn, Database Mirroring, Point in Time Restores, and Media Recovery</li>
+                        </ul>
+                    </li>
+                    <li>Full
+                        <ul>
+                            <li>No work is lost</li>
+                            <li>Can recover to any point as it logs all transactions</li>
+                        </ul>
+                    </li>
+                    <li>Bulk-Logged
+                        <ul>
+                            <li>Permits high performance bulk copy operations for logs</li>
+                            <li>Records bulk operation logs</li>
+                        </ul>
+                    </li>
+                </ul>
+                <h3>What is a Backup?</h3>
+                <ul>
+                    <li>Backups are used to make a compressed copy of the data in a database</li>
+                    <li>Only backup data if it is online, any offline databases can't be backed up</li>
+                    <li>If a backup is started when a DB is being created, the backup will wait or time out</li>
+                </ul>
+                <h3>Types of Backups</h3>
+                <ul>
+                    <li>Full Backup
+                        <ul>
+                            <li>Copies all the data in a specific database with enough logs for recovering data</li>
+                        </ul>
+                    </li>
+                    <li>Differential Backup
+                        <ul>
+                            <li>Records all the data that has been changed or modified since the last Full Backup</li>
+                        </ul>
+                    </li>
+                    <li>Transaction Log Backup
+                        <ul>
+                            <li>Records all the transaction logs that were not backed up in a previous Log Backup</li>
+                        </ul>
+                    </li>
+                    <li>Tail-Backup
+                        <ul>
+                            <li>Records the latest log records that have not yet been backed up to prevent data loss</li>
+                        </ul>
+                    </li>
+                </ul>
+                <h3>SQL Server Job Agent</h3>
+                <ul>
+                    <li>Tool in SQL that allows one to execute scheduled admin tasks or syntax</li>
+                    <li>Great for performing backups late at night or doing long tasks that would take too much time to execute normally</li>
+                    <li><b>Jobs -</b> Specified actions to be taken in SQL</li>
+                    <li><b>Schedules -</b> Specified times when jobs run</li>
+                    <li><b>Alerts -</b> Automatic response to an event</li>
+                    <li><b>Operators -</b> Used to define contact for those responsible via Email</li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="main-section" id="Hints">
+            <header>Hints</header>
+            <article>
+                <p>
+                    Hints are options or strategies specified for enforcement by the SQL Server query processor on SELECT, INSERT, UPDATE, or
+                    DELETE statements. The hints override any execution plan the query optimizer might select for a query.
+                </p>
+                <ul>
+                    <li>Hints are ways of the user “hinting” to the SQL Server Engine what method of execution it should take</li>
+                    <li>Hints override the normal execution plan created by SQL Server when it performs a query or syntax</li>
+                </ul>
+                <h3>Types of Hints in SQL Server</h3>
+                <ul>
+                    <li>Joint Hints
+                        <ul>
+                            <li>Hints that specify how joins will sort and combine data</li>
+                        </ul>
+                    </li>
+                    <li>Query Hints
+                        <ul>
+                            <li>Applies specified hint to entire query as it’s executed</li>
+                            <li>Applies to Select, Insert, Update, and Delete</li>
+                        </ul>
+                    </li>
+                    <li>Table Hints
+                        <ul>
+                            <li>Used to control the locks used on a table and even what indexes to use in queries</li>
+                        </ul>
+                    </li>
+                </ul>
+                <h3>Join Hints</h3>
+                <ul>
+                    <li><b>Hash Join -</b> Creates two hash tables in memory, fills them with data based on keys, and compares smaller table to large one</li>
+                    <li><b>Remote Hash Join -</b> Performs the same hash join, but the build and probe phases are done on the linked server instead if it's smaller</li>
+                    <li><b>Loop Join -</b> Creates a nested loop in which each value is compared from the smaller table to the larger row by row</li>
+                    <li><b>Merge Joins -</b> Used for tables that are similar in size, it compares values that are matching across from each other. If duplicates, then Cartesian Product</li>
+                </ul>
+                <h3>Query Hints</h3>
+                <ul>
+                    <li>Typically uses a WITH and an OPTION clause to specify the query hint to be applied to the whole syntax</li>
+                    <li>Only works in INSERT if it uses a select statement in it to move data</li>
+                </ul>
+                <code>
+                    SELECT c.ContactID
+                    FROM Person.Contact c
+                    WITH (INDEX(AK_Contact_rowguid))
+                    INNER JOIN Person.Contact pc
+                    WITH (INDEX(PK_Contact_ContactID))
+                    ON c.ContactID = pc.ContactID
+                </code>
+                <h3>Table Hints</h3>
+                <ul>
+                    <li>Used to control what locks are used during a query</li>
+                    <li>By controlling locks you can control how other can access the data</li>
+                    <li>For least restrictive use NOLOCK or READUNCOMMITTED</li>
+                    <li><b>NOWAIT -</b> return message of lock encountered</li>
+                    <li><b>XLOCK -</b> Creates and holds exclusive locks</li>
+                    <li><b>READPAST -</b> Skip any rows locked</li>
+                    <li><b>ROWLOCK -</b> Shared lock on a single row</li>
+                </ul>
+                <h3>Considerations for Hints</h3>
+                <ul>
+                    <li>Hints are great for specific control and improving performance, however consider the following FIRST:
+                        <ul>
+                            <li>Rebuild or Re-Organize Indexes</li>
+                            <li>Update statistics on tables</li>
+                            <li>Create new queries if needed</li>
+                            <li>Re-write the query for more optimized design</li>
+                        </ul>
+                    </li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="main-section" id="SQL_Profiler">
+            <header>SQL Profiler</header>
+            <article>
+                <p>
+                    SQL Server Profiler is an interface to create and manage traces and analyze and replay trace results. 
+                    Events are saved in a trace file that can later be analyzed or used to replay a specific series of steps
+                    when diagnosing a problem. SQL Trace and SQL Server Profiler are deprecated.
+                </p>
+                <ul>
+                    <li>A tool in SQL, it is used to capture or track events in SQL Server</li>
+                    <li>Can find slow running queries or problems in queries</li>
+                    <li>Can record or capture statements to record issues</li>
+                    <li>Monitors the performance of the server</li>
+                    <li>Can either save results to table or export to .trc file</li>
+                </ul>
+                <h3>What is Database Engine Tuning Advisor?</h3>
+                <ul>
+                    <li>A tool in SQL, it is used to assess the creation of indexes, indexed views, and partitions</li>
+                    <li>Analyzes workloads and the physical performance, after which it recommends physical design changes</li>
+                    <li>Will show possible changes and how they'll affect performance</li>
+                    <li>Can take as input trace (.trc) files to better isolate problems</li>
+                </ul>
+            </article>
+        </section>
+    </main>
+</body>
+</html>
